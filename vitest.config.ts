@@ -9,6 +9,10 @@ export default defineConfig({
     alias: [{ find: "@", replacement: resolve(__dirname, "./src") }]
   },
   test: {
+    coverage: {
+      reporter: ['html'],
+      reportsDirectory: './__tests__/unit/coverage'
+    },
     environment: 'jsdom',
   },
 })
