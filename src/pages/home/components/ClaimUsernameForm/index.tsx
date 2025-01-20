@@ -1,9 +1,10 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Text, TextInput } from '@ignite-ui/react'
-import { ArrowRight } from 'phosphor-react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { Form, FormAnnotation } from './styles'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button, Text, TextInput } from '@ignite-ui/react';
+import { useRouter } from 'next/router';
+import { ArrowRight } from 'phosphor-react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Form, FormAnnotation } from './styles';
 
 const ClaimUsernameFormSchema = z.object({
   username: z
@@ -17,16 +18,19 @@ const ClaimUsernameFormSchema = z.object({
 type ClaimUsernameFormData = z.infer<typeof ClaimUsernameFormSchema>
 
 export const ClaimUsernameForm = () =>{
+  const router = useRouter()
   const { 
     register, 
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ClaimUsernameFormData>({
     resolver: zodResolver(ClaimUsernameFormSchema),
   })
 
   const handleClaimUsername = async (data: ClaimUsernameFormData) => {
-    console.log(data)
+    //console.log(data)
+    const { username } = data
+    router.push(`/register?username=${username}`)
   }
   
   return (
@@ -41,7 +45,7 @@ export const ClaimUsernameForm = () =>{
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
        />
-      <Button size="sm" type="submit">
+      <Button size="sm"  type="submit" disabled={isSubmitting}>
         Reservar
         <ArrowRight />
       </Button>

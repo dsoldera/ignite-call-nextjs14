@@ -23,3 +23,9 @@ https://rocketseat-education.github.io/05-design-system/?path=/story/home--page
 ## Testing Lib Links
 - https://vitest.dev/guide/
 - https://testing-library.com/docs/react-testing-library/intro/
+
+
+## Prisma
+- `npx prisma init --datasource-provider SQLite`
+- `npx prisma migrate dev`
+- `npx prisma studio`  

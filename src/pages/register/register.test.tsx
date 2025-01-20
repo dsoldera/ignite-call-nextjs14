@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react"
-import { beforeEach, describe, expect, it } from "vitest"
-import Register from "./index.page"
+import { render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import Register from "./index.page";
 
+vi.mock("next/router", () => require("next-router-mock"));
 describe ('Register Form Unit Test', () => {
   beforeEach(async () => {
     render(<Register />)
@@ -12,7 +13,15 @@ describe ('Register Form Unit Test', () => {
      await expect(heading).toBeDefined()
   })
 
-  it.todo('Register Form should have an Input field', async () => {})
+  it.todo('Register Form should be validate', async () => {})
 
-  it.todo('Register Form should be possible to be validated', async () => {})
+  it.todo('Register Form should go to the next step', async () => {})
 })
+
+/**
+ * import mockRouter from 'next-router-mock';
+ * it('NextLink can be rendered', () => {
+ *  fireEvent.click(screen.getByText('Example Link'));
+ *  expect(mockRouter.asPath).toEqual('/example')
+ * });
+ */

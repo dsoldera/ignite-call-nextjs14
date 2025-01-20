@@ -1,8 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ClaimUsernameForm } from ".";
+//import mockRouter from 'next-router-mock';
 
+// const router =  vi.fn()
+// const mockFn = router.mockImplementation(require('next-router'))
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+vi.mock("next/router", () => require("next-router-mock"));
 describe ('Claim Username Form Unit Test', () => {
   beforeEach(async () => {
     await render(<ClaimUsernameForm />)
@@ -22,5 +28,5 @@ describe ('Claim Username Form Unit Test', () => {
 
   it.todo('should be able to validate the username input', async () => {})
 
-  it.todo('should be able to click at the button', async () => {})
+  it.todo('should go to register page when click at the button', async () => {})
 })
