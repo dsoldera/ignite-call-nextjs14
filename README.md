@@ -28,4 +28,10 @@ https://rocketseat-education.github.io/05-design-system/?path=/story/home--page
 ## Prisma
 - `npx prisma init --datasource-provider SQLite`
 - `npx prisma migrate dev`
-- `npx prisma studio`  
+- `npx prisma studio` 
+
+## Google OAth
+- ignite-call-nextjs1-4
+- credentials inside .env
+To remove the permission to test again
+- https://myaccount.google.com/security?hl=pt >> Third Party Apps
