@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { Container, Header } from '../styles'
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 
-export default function Register() {
+export default function ConnectCalendar() {
   const session = useSession()
   const router = useRouter()
 
@@ -16,6 +16,12 @@ export default function Register() {
   const handleConnectCalendar = async () => {
     await signIn('google')
   }
+
+  const handleNextStep = async () => {
+    await router.push('/register/time-intervals')
+  }
+
+  console.log(session)
 
   return (
     <Container>
@@ -58,7 +64,10 @@ export default function Register() {
           </AuthError>
         )}
 
-        <Button type="submit" disabled={!isSignedId}>
+        <Button 
+          type="submit" 
+          onClick={handleNextStep}
+          disabled={!isSignedId}>
           Próximo passo
           <ArrowRight />
         </Button>
