@@ -31,3 +31,6 @@ https://rocketseat-education.github.io/05-design-system/?path=/story/home--page
 - credentials inside .env
 To remove the permission to test again
 - https://myaccount.google.com/security?hl=pt >> Third Party Apps
+
+## Google Developer - Credentials
+https://console.cloud.google.com/apis/credentials?hl=pt-br

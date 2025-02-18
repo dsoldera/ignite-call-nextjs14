@@ -1,3 +1,4 @@
+import { api } from '@/lib/axios'
 import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
 import { getWeekDays } from '@/utils/get-week-days'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -87,8 +88,13 @@ export default function TimeIntervals() {
   })
 
   const handleSetTimeIntervals = async (data: any) => {
-    const formData = data as TimeIntervalsFormOutput
-    console.log(formData)
+    const { intervals } = data as TimeIntervalsFormOutput
+  
+    await api.post('/users/time-intervals', {
+      intervals,
+    })
+
+    console.log('handleSetTimeIntervals')
   }
 
   return (
@@ -155,7 +161,7 @@ export default function TimeIntervals() {
           <FormError size="sm">{errors.intervals.root?.message}</FormError>
         )}
         {/* How to debug the Errors */}
-        {/* {errors && <p>{JSON.stringify(errors)}</p>} */}
+        {errors && <p>{JSON.stringify(errors)}</p>}
         
         <Button type="submit" disabled={isSubmitting}>
           Próximo passo
