@@ -27,7 +27,7 @@ https://rocketseat-education.github.io/05-design-system/?path=/story/home--page
 - `npx prisma studio` 
 
 ## Google OAth
-- ignite-call-nextjs1-4
+- ignite-call-nextjs14
 - credentials inside .env
 To remove the permission to test again
 - https://myaccount.google.com/security?hl=pt >> Third Party Apps
