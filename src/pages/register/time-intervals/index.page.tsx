@@ -10,6 +10,7 @@ import {
   Text,
   TextInput,
 } from '@ignite-ui/react'
+import router from 'next/router'
 import { ArrowRight } from 'phosphor-react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -95,6 +96,7 @@ export default function TimeIntervals() {
     })
 
     console.log('handleSetTimeIntervals')
+    await router.push('/register/update-profile')
   }
 
   return (
