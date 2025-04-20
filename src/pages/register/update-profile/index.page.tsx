@@ -1,7 +1,7 @@
 import { api } from "@/lib/axios"
 import { buildNextAuthOptions } from "@/pages/api/auth/[...nextauth].api"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button, Heading, MultiStep, Text, TextArea } from '@ignite-ui/react'
+import { Avatar, Button, Heading, MultiStep, Text, TextArea } from '@ignite-ui/react'
 import { GetServerSideProps } from "next"
 import { getServerSession } from "next-auth"
 import { useSession } from "next-auth/react"
@@ -37,7 +37,7 @@ export default function UpdateProfile() {
       bio: data.bio,
     })
 
-    //await router.push(`/schedule/${session.data?.user.username}`)
+    await router.push(`/schedule/${session.data?.user.username}`)
   }
   
   return (
@@ -49,12 +49,17 @@ export default function UpdateProfile() {
           editar essas informações depois.
         </Text>
 
-        <MultiStep size={4} currentStep={1} />
+        <MultiStep size={4} currentStep={4} />
       </Header>
 
       <ProfileBox as="form" onSubmit={handleSubmit(handleUpdateProfile)}>
         <label>
           <Text>Foto de perfil</Text>
+          <Avatar
+             src={session.data?.user.avatar_url}
+             referrerPolicy="no-referrer"
+             alt={session.data?.user.name}
+           />
         </label>
 
         <label>
